@@ -25,8 +25,6 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	montyprocess();
-	free(helpy.buffer);
-	free_dlistint(helpy.head);
-	fclose(helpy.fp);
+	free_everything();
 	return (0);
 }

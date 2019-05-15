@@ -13,17 +13,14 @@ void add_dnodeint(stack_t **head, unsigned int line_number)
 
 	if (!head)
 	{
-		free(helpy.buffer);
-		fclose(helpy.fp);
+		free_everything();
 		exit(1);
 	}
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free(helpy.buffer);
-		free(helpy.head);
-		fclose(helpy.fp);
+		free_everything();
 		exit(EXIT_FAILURE);
 	}
 	num = atoi(helpy.token2);
@@ -85,43 +82,8 @@ void pint(stack_t **head, unsigned int line_number)
 		printf("%d\n", (*head)->n);
 	else
 	{
-		fprintf(stderr,"L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_everything();
 		exit(EXIT_FAILURE);
 	}
-}
-/**
- * montyprocess - processes monty instructions
- *
- * Return: 0 on success, EXIT_FAILURE on error
- */
-int montyprocess(void)
-{
-	int i = 0;
-	instruction_t instructions[] = {{"push", add_dnodeint},
-					{"pall", print_dlistint}, {"pint", pint}
-		, {NULL, NULL}};
-	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
-	{
-		helpy.line_number++;
-		helpy.token1 = strtok(helpy.buffer, " \n");
-		if (helpy.token1 == NULL)
-			continue;
-		if (strcmp(helpy.token1, "push") == 0)
-		{
-			helpy.token2 = strtok(NULL, " \n");
-			if (helpy.token2 == NULL)
-		{
-			fprintf(stderr, "L%lu: usage: push integer\n", helpy.line_number);
-			exit(EXIT_FAILURE);
-		}
-		}
-		i = 0;
-		while (instructions[i].opcode != NULL)
-		{
-			if (strcmp(instructions[i].opcode, helpy.token1) == 0)
-				instructions[i].f(&helpy.head, helpy.line_number);
-			i++;
-		}
-	}
-	return (0);
 }

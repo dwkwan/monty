@@ -67,5 +67,6 @@ void print_dlistint(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void free_dlistint(stack_t *head);
 int montyprocess(void);
+void free_everything(void);
 
 #endif /* MONTY_H */
