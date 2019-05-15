@@ -20,7 +20,7 @@ void add_dnodeint(stack_t **head, unsigned int line_number)
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
-		printf("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
 		free(helpy.buffer);
 		free(helpy.head);
 		fclose(helpy.fp);
@@ -85,7 +85,7 @@ void pint(stack_t **head, unsigned int line_number)
 		printf("%d\n", (*head)->n);
 	else
 	{
-		printf("L%u: can't pint, stack empty\n", line_number);
+		fprintf(stderr,"L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -111,7 +111,7 @@ int montyprocess(void)
 			helpy.token2 = strtok(NULL, " \n");
 			if (helpy.token2 == NULL)
 		{
-			printf("L%lu: usage: push integer\n", helpy.line_number);
+			fprintf(stderr, "L%lu: usage: push integer\n", helpy.line_number);
 			exit(EXIT_FAILURE);
 		}
 		}
