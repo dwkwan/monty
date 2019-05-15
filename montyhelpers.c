@@ -85,6 +85,42 @@ void pint(stack_t **head, unsigned int line_number)
 	else
 	{
 		printf("L%u: can't pint, stack empty\n", line_number);
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
+}
+/**
+ * montyprocess - processes monty instructions
+ *
+ * Return: 0 on success, EXIT_FAILURE on error
+ */
+int montyprocess(void)
+{
+	int i = 0;
+	instruction_t instructions[] = {{"push", add_dnodeint},
+					{"pall", print_dlistint}, {"pint", pint}
+		, {NULL, NULL}};
+	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
+	{
+		helpy.line_number++;
+		helpy.token1 = strtok(helpy.buffer, " \n");
+		if (helpy.token1 == NULL)
+			continue;
+		if (strcmp(helpy.token1, "push") == 0)
+		{
+			helpy.token2 = strtok(NULL, " \n");
+			if (helpy.token2 == NULL)
+		{
+			printf("L%lu: usage: push integer\n", helpy.line_number);
+			exit(EXIT_FAILURE);
+		}
+		}
+		i = 0;
+		while (instructions[i].opcode != NULL)
+		{
+			if (strcmp(instructions[i].opcode, helpy.token1) == 0)
+				instructions[i].f(&helpy.head, helpy.line_number);
+			i++;
+		}
+	}
+	return (0);
 }
