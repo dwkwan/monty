@@ -20,10 +20,11 @@ void add_dnodeint(stack_t **head, unsigned int line_number)
 	newnode = malloc(sizeof(stack_t));
 	if (newnode == NULL)
 	{
+		printf("Error: malloc failed\n");
 		free(helpy.buffer);
 		free(helpy.head);
 		fclose(helpy.fp);
-		exit(1);
+		exit(EXIT_FAILURE);
 	}
 	num = atoi(helpy.token2);
 	newnode->n = num;
