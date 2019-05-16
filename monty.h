@@ -63,18 +63,20 @@ typedef struct help
 } helpers;
 extern helpers helpy;
 
-void add_dnodeint(stack_t **head, unsigned int line_number);
-void print_dlistint(stack_t **head, unsigned int line_number);
+void push(stack_t **head, unsigned int line_number);
+void pall(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void free_dlistint(stack_t *head);
 int montyprocess(void);
 void free_everything(void);
 int _isnumber(void);
-size_t dlistint_len(const stack_t *h);
 void pop(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void add(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
-
+void sub(stack_t **head, unsigned int line_number);
+void divi(stack_t **head, unsigned int line_number);
+void mul(stack_t **head, unsigned int line_number);
+void mod(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */

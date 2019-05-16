@@ -1,11 +1,11 @@
 #include "monty.h"
 /**
- * add_dnodeint - adds a new node at the beginning of a dlistint_t list
+ * push - adds a new node at the beginning of a dlistint_t list
  * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line_number of instruction
  * Return: address of new element
  */
-void add_dnodeint(stack_t **head, unsigned int line_number)
+void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode = NULL;
 	int num = 0;
@@ -38,12 +38,12 @@ void add_dnodeint(stack_t **head, unsigned int line_number)
 }
 
 /**
- * print_dlistint - prints all the elements of a stack_t list
+ * pall - prints all the elements of a stack_t list
  * @head: pointer to a struct of type stack_t
  * @line_number: line number of instruction
  * Return: number of nodes
  */
-void print_dlistint(stack_t **head, unsigned int line_number)
+void pall(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp = *head;
 	(void)line_number;
