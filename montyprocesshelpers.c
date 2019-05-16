@@ -9,7 +9,7 @@ int montyprocess(void)
 	int i = 0;
 	instruction_t instructions[] = {{"push", add_dnodeint},
 					{"pall", print_dlistint}, {"pint", pint}
-					, {NULL, NULL}};
+					, {"pop", pop}, {NULL, NULL}};
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
 	{
 		helpy.line_number++;
@@ -55,4 +55,33 @@ void free_everything(void)
 	free(helpy.buffer);
 	free_dlistint(helpy.head);
 	fclose(helpy.fp);
+}
+/**
+ * _isnumber - determines if string is number
+ * Return: 0 on success, exits on failure
+ */
+int _isnumber(void)
+{
+	int i = 0;
+
+	if ((!isdigit(helpy.token2[0]) && helpy.token2[0] != '-')
+	    || (helpy.token2[0] == '-' && helpy.token2[1] == '\0'))
+	{
+		fprintf(stderr, "L%lu: usage: push integer\n",
+			helpy.line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+	i = 1;
+	while (helpy.token2[i])
+	{
+		if (!isdigit(helpy.token2[i]))
+		{
+			fprintf(stderr, "L%lu: usage: push integer\n", helpy.line_number);
+			free_everything();
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	return (0);
 }

@@ -88,32 +88,27 @@ void pint(stack_t **head, unsigned int line_number)
 	}
 }
 /**
- * _isnumber - determines if string is number
- * Return: 0 on success, exits on failure
+ * pop - removes the top element of the stack
+ * @head: pointer to a pointer to a struct of type dlistint_t
+ * @line_number: line number of instruction
+ *
+ * Return: void
  */
-int _isnumber(void)
+void pop(stack_t **head, unsigned int line_number)
 {
-	int i = 0;
+	stack_t *tmp = NULL;
+	size_t len = 0;
 
-	if ((!isdigit(helpy.token2[0]) && helpy.token2[0] != '-')
-	    || (helpy.token2[0] == '-' && helpy.token2[1] == '\0'))
+	if (!*head)
 	{
-		fprintf(stderr, "L%lu: usage: push integer\n",
-			helpy.line_number);
+		printf("L%u: can't pop an empty stack\n", line_number);
 		free_everything();
 		exit(EXIT_FAILURE);
 	}
-	i = 1;
-	while (helpy.token2[i])
-	{
-		if (!isdigit(helpy.token2[i]))
-		{
-			fprintf(stderr, "L%lu: usage: push integer\n", helpy.line_number);
-			free_everything();
-			exit(EXIT_FAILURE);
-		}
-		i++;
-	}
-
-	return (0);
+	len = dlistint_len(*head);
+	tmp = *head;
+	*head = (*head)->next;
+	if (len != 1)
+		(*head)->prev = NULL;
+	free(tmp);
 }

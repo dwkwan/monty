@@ -70,5 +70,7 @@ void free_dlistint(stack_t *head);
 int montyprocess(void);
 void free_everything(void);
 int _isnumber(void);
+size_t dlistint_len(const stack_t *h);
+void pop(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */
