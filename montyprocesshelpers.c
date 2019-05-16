@@ -26,6 +26,7 @@ int montyprocess(void)
 				exit(EXIT_FAILURE);
 			}
 		}
+		i = 0;
 		while (instructions[i].opcode != NULL)
 		{
 			if (strcmp(instructions[i].opcode, helpy.token1) == 0)
