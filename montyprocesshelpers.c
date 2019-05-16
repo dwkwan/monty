@@ -9,7 +9,7 @@ int montyprocess(void)
 	int i = 0;
 	instruction_t instructions[] = {{"push", add_dnodeint},
 					{"pall", print_dlistint}, {"pint", pint}
-					, {"pop", pop}, {"swap", swap}, {NULL, NULL}};
+					, {"pop", pop}, {"swap", swap}, {"add", add}, {NULL, NULL}};
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
 	{
 		helpy.line_number++;
