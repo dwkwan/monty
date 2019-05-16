@@ -26,6 +26,7 @@ int montyprocess(void)
 				free_everything();
 				exit(EXIT_FAILURE);
 			}
+			_isnumber();
 		}
 		i = 0;
 		while (instructions[i].opcode != NULL)

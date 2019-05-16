@@ -87,3 +87,33 @@ void pint(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+/**
+ * _isnumber - determines if string is number
+ * Return: 0 on success, exits on failure
+ */
+int _isnumber(void)
+{
+	int i = 0;
+
+	if ((!isdigit(helpy.token2[0]) && helpy.token2[0] != '-')
+	    || (helpy.token2[0] == '-' && helpy.token2[1] == '\0'))
+	{
+		fprintf(stderr, "L%lu: usage: push integer\n",
+			helpy.line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+	i = 1;
+	while (helpy.token2[i])
+	{
+		if (!isdigit(helpy.token2[i]))
+		{
+			fprintf(stderr, "L%lu: usage: push integer\n", helpy.line_number);
+			free_everything();
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+
+	return (0);
+}

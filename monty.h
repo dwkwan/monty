@@ -7,6 +7,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -68,5 +69,6 @@ void pint(stack_t **head, unsigned int line_number);
 void free_dlistint(stack_t *head);
 int montyprocess(void);
 void free_everything(void);
+int _isnumber(void);
 
 #endif /* MONTY_H */
