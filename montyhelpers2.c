@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * pop - removes the top element of the stack
- * @head: pointer to a pointer to a struct of type dlistint_t
+ * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line number of instruction
  *
  * Return: void
@@ -24,7 +24,7 @@ void pop(stack_t **head, unsigned int line_number)
 }
 /**
  * add - adds top two elements of stack
- * @head: pointer to a pointer to a struct of type dlistint_t
+ * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line number of instruction
  *
  * Return: void
@@ -55,4 +55,16 @@ void add(stack_t **head, unsigned int line_number)
 	*head = (*head)->next;
 	free(tmp);
 	(*head)->prev = NULL;
+}
+/**
+ * nop - doesn’t do anything
+ * @head: pointer to a pointer to a struct of type stack_t
+ * @line_number: line number of instruction
+ *
+ * Return: void
+ */
+void nop(stack_t **head, unsigned int line_number)
+{
+	(void)head;
+	(void)line_number;
 }
