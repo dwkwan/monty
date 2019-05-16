@@ -87,28 +87,3 @@ void pint(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
-/**
- * pop - removes the top element of the stack
- * @head: pointer to a pointer to a struct of type dlistint_t
- * @line_number: line number of instruction
- *
- * Return: void
- */
-void pop(stack_t **head, unsigned int line_number)
-{
-	stack_t *tmp = NULL;
-	size_t len = 0;
-
-	if (!*head)
-	{
-		printf("L%u: can't pop an empty stack\n", line_number);
-		free_everything();
-		exit(EXIT_FAILURE);
-	}
-	len = dlistint_len(*head);
-	tmp = *head;
-	*head = (*head)->next;
-	if (len != 1)
-		(*head)->prev = NULL;
-	free(tmp);
-}

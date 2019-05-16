@@ -1,17 +1,24 @@
 #include "monty.h"
 /**
- * dlistint_len - returns number of elements in a linked list
- * @h: pointer to a struct of type dlistint_t
- * Return: number of elements
+ * pop - removes the top element of the stack
+ * @head: pointer to a pointer to a struct of type dlistint_t
+ * @line_number: line number of instruction
+ *
+ * Return: void
  */
-size_t dlistint_len(const stack_t *h)
+void pop(stack_t **head, unsigned int line_number)
 {
-	int counter = 0;
+	stack_t *tmp = NULL;
 
-	while (h)
+	if (!*head)
 	{
-		counter++;
-		h = h->next;
+		printf("L%u: can't pop an empty stack\n", line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
 	}
-	return (counter);
+	tmp = *head;
+	*head = (*head)->next;
+	free(tmp);
+	if (*head)
+		(*head)->prev = NULL;
 }
