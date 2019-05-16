@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * add_dnodeint - adds a new node at the beginning of a dlistint_t list
- * @head: pointer to a pointer to a struct of type dlistint_t
+ * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line_number of instruction
  * Return: address of new element
  */
@@ -38,8 +38,8 @@ void add_dnodeint(stack_t **head, unsigned int line_number)
 }
 
 /**
- * print_dlistint - prints all the elements of a dlistint_t list
- * @head: pointer to a struct of type dlistint_t
+ * print_dlistint - prints all the elements of a stack_t list
+ * @head: pointer to a struct of type stack_t
  * @line_number: line number of instruction
  * Return: number of nodes
  */
@@ -57,7 +57,7 @@ void print_dlistint(stack_t **head, unsigned int line_number)
 }
 /**
  * free_dlistint - free a dlistint_t list
- * @head: pointer to dlistint_t struct
+ * @head: pointer to stack_t struct
  */
 void free_dlistint(stack_t *head)
 {
@@ -72,7 +72,7 @@ void free_dlistint(stack_t *head)
 }
 /**
  * pint - prints first element of a dlistint_t list
- * @head: pointer to a pointer to a struct of type dlistint_t
+ * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line number of instruction
  * Return: void
  */
@@ -86,4 +86,32 @@ void pint(stack_t **head, unsigned int line_number)
 		free_everything();
 		exit(EXIT_FAILURE);
 	}
+}
+/**
+ * swap - swaps the top two elements of the stack
+ * @head: pointer to a pointer to a struct of type stack_t
+ * @line_number: line number of instruction
+ * Return: void
+ */
+void swap(stack_t **head, unsigned int line_number)
+{
+	int tmp;
+	stack_t *current = *head;
+	int counter = 0;
+
+	while (current)
+	{
+		counter++;
+		current = current->next;
+	}
+	if (counter < 2)
+	{
+		fprintf(stderr, "L%u: can't swap, stack too short\n",
+			line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+	tmp = (*head)->n;
+	(*head)->n = (*head)->next->n;
+	(*head)->next->n = tmp;
 }
