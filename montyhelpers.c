@@ -97,6 +97,7 @@ void pint(stack_t **head, unsigned int line_number)
 void pop(stack_t **head, unsigned int line_number)
 {
 	stack_t *tmp = NULL;
+	size_t len = 0;
 
 	if (!*head)
 	{
@@ -104,9 +105,10 @@ void pop(stack_t **head, unsigned int line_number)
 		free_everything();
 		exit(EXIT_FAILURE);
 	}
+	len = dlistint_len(*head);
 	tmp = *head;
 	*head = (*head)->next;
+	if (len != 1)
+		(*head)->prev = NULL;
 	free(tmp);
-	if (*head)
-		(*head)->prev == NULL;
 }
