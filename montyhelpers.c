@@ -88,12 +88,12 @@ void pint(stack_t **head, unsigned int line_number)
 	}
 }
 /**
- * swap - swaps the top two elements of the stack
+ * sw - swaps the top two elements of the stack
  * @head: pointer to a pointer to a struct of type stack_t
  * @line_number: line number of instruction
  * Return: void
  */
-void swap(stack_t **head, unsigned int line_number)
+void sw(stack_t **head, unsigned int line_number)
 {
 	int tmp;
 	stack_t *current = *head;

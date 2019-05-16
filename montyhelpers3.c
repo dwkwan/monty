@@ -145,3 +145,30 @@ void mod(stack_t **head, unsigned int line_number)
 	free(tmp);
 	(*head)->prev = NULL;
 }
+/**
+ * pchar - prints the char at the top of the stack
+ * @stack: pointer to a pointer to a struct of type stack_t
+ * @line_number: line number of instruction
+ *
+ * Return: void
+ */
+void pchar(stack_t **stack, unsigned int line_number)
+{
+	if (*stack == NULL)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+
+	if ((*stack)->n > 0 && (*stack)->n <= 177)
+	{
+		printf("%c\n", (*stack)->n);
+	}
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+}
