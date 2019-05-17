@@ -7,7 +7,7 @@
 int montyprocess(void)
 {
 	int i = 0;
-	instruction_t instructions[] = {{"push", push}, {"sub", sub},
+	instruction_t instructions[] = {{"push", push}, {"sub", sub}, {"pstr", pstr},
 					{"div", divi}, {"mul", mul}, {"pall", pall}, {"pint", pint}, {"nop", nop},
 					{"mod", mod}, {"pop", pop}, {"swap", swap}, {"add", add}, {NULL, NULL}};
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
