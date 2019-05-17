@@ -92,4 +92,4 @@
 
 **Authors:**
 David Kwan(692@holbertonschool.com)(Twitter: @daviddwkwan)(Medium: @dwkwan1989)(LinkedIn: david-kwan-1b0930129)
-Grayson Stiegler(682@holbertonschool.com)(Twitter: @Grayson30418472)
+Grayson Stiegler(682@holbertonschool.com)(Twitter: @Grayson30418472)(Medium: Grayson Stiegler)
