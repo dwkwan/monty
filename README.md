@@ -66,8 +66,8 @@
 	* pstr -  The opcode pstr prints the string starting at the top of the stack, followed by a new line.
 	* rotl - The opcode rotl rotates the stack to the top.
 	* rotr - The opcode rotr rotates the stack to the bottom.
-	* 
-
+	* stack - The opcode stack sets the format of the data to a stack (LIFO). This is the default behavior of the program.
+	* queue - The opcode queue sets the format of the data to a queue (FIFO).
 
 **Authors:**
 David Kwan(692@holbertonschool.com)
