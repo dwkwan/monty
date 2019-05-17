@@ -82,5 +82,6 @@ void pstr(stack_t **head, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 int montycompare(void);
 void rotl(stack_t **head, unsigned int line_number);
+void rotr(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */

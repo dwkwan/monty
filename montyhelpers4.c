@@ -53,3 +53,27 @@ void rotl(stack_t **head, unsigned int line_number)
 		current->next = back;
 	}
 }
+/**
+ * rotr - rotates the stack to the bottom
+ * @head: pointer to a pointer to a struct of type stack_t
+ * @line_number: line number of instruction
+ *
+ * Return: void
+ */
+void rotr(stack_t **head, unsigned int line_number)
+{
+	stack_t *front = NULL;
+	stack_t *current = *head;
+	(void)line_number;
+
+	if (*head && (*head)->next)
+	{
+		while (current->next)
+			current = current->next;
+		current->prev->next = NULL;
+		front = current;
+		front->next = *head;
+		front->prev = NULL;
+		*head = front;
+	}
+}

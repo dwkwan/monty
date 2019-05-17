@@ -39,7 +39,8 @@ int montycompare(void)
 					{"div", divi}, {"mul", mul}, {"pall", pall},
 					{"pint", pint}, {"nop", nop}, {"pchar", pchar},
 					{"mod", mod}, {"pop", pop}, {"swap", sw},
-					{"add", add}, {"rotl", rotl}, {NULL, NULL}};
+					{"add", add}, {"rotl", rotl}
+					, {"rotr", rotr}, {NULL, NULL}};
 	i = 0;
 	while (instructions[i].opcode != NULL)
 	{
