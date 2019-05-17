@@ -7,14 +7,14 @@
 int montyprocess(void)
 {
 	int i = 0;
-	instruction_t instructions[] = {{"push", push}, {"sub", sub}, {"pstr", pstr},
-					{"div", divi}, {"mul", mul}, {"pall", pall}, {"pint", pint}, {"nop", nop},
+		instruction_t instructions[] = {{"push", push}, {"sub", sub}, {"pstr", pstr}, 
+					{"div", divi}, {"mul", mul}, {"pall", pall}, {"pint", pint}, {"nop", nop}, {"pchar", pchar},
 					{"mod", mod}, {"pop", pop}, {"swap", swap}, {"add", add}, {NULL, NULL}};
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
 	{
 		helpy.line_number++;
 		helpy.token1 = strtok(helpy.buffer, " \n");
-		if (helpy.token1 == NULL)
+		if (helpy.token1 == NULL || helpy.token1[0] == '#')
 			continue;
 		if (strcmp(helpy.token1, "push") == 0)
 		{
