@@ -2,6 +2,10 @@
 
 ![monty](https://pbs.twimg.com/media/CFYYWy6UEAE9Ow-.png)
 
+**About**
+	Monty is a bytecode interpreter that David Kwan and I built for Holberton 
+	project 0x18 C - Stacks, Queues - LIFO, FIFO.
+
 **Resources**
 
 	* Google
