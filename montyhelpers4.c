@@ -77,3 +77,37 @@ void rotr(stack_t **head, unsigned int line_number)
 		*head = front;
 	}
 }
+/**
+ * queuepush - adds a new node at the end of a stack_t list
+ * @head: pointer to a pointer to a stack_t struct
+ * @line_number: number of instruction
+ * Return: void
+ */
+int queuepush(stack_t **head, unsigned int line_number)
+{
+	stack_t *newnode = NULL;
+	stack_t  *current = *head;
+	(void)line_number;
+
+	newnode = malloc(sizeof(stack_t));
+	if (!newnode)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+	newnode->n = atoi(helpy.token2);
+	newnode->next = NULL;
+	newnode->prev = NULL;
+	if (!*head)
+	{
+		newnode->next = *head;
+		*head = newnode;
+		return (0);
+	}
+	while (current->next != NULL)
+		current = current->next;
+	newnode->prev = current;
+	current->next = newnode;
+	return (0);
+}

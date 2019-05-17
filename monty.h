@@ -47,7 +47,7 @@ typedef struct instruction_s
  * @line_number: line number of file
  * @n: number of bytes read
  * @token1: pointer to token 2
- *
+ * @queueflag: flag for queue function
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
  */
@@ -60,6 +60,7 @@ typedef struct help
 	size_t line_number;
 	size_t n;
 	char *token1;
+	int queueflag;
 } helpers;
 extern helpers helpy;
 
@@ -83,5 +84,6 @@ void pchar(stack_t **stack, unsigned int line_number);
 int montycompare(void);
 void rotl(stack_t **head, unsigned int line_number);
 void rotr(stack_t **head, unsigned int line_number);
+int queuepush(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */

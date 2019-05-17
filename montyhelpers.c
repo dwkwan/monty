@@ -9,8 +9,13 @@ void push(stack_t **head, unsigned int line_number)
 {
 	stack_t *newnode = NULL;
 	int num = 0;
-	(void)line_number;
+	int result = 1;
 
+	(void)line_number;
+	if (helpy.queueflag == 1)
+		result = queuepush(&helpy.head, helpy.line_number);
+	if (result == 0)
+		return;
 	if (!head)
 	{
 		free_everything();

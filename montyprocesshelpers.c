@@ -6,12 +6,24 @@
  */
 int montyprocess(void)
 {
+	helpy.queueflag = 0;
+
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
 	{
 		helpy.line_number++;
 		helpy.token1 = strtok(helpy.buffer, " \n");
 		if (helpy.token1 == NULL || helpy.token1[0] == '#')
 			continue;
+		if (strcmp(helpy.token1, "queue") == 0)
+		{
+			helpy.queueflag = 1;
+			continue;
+		}
+		if (strcmp(helpy.token1, "stack") == 0)
+		{
+			helpy.queueflag = 0;
+			continue;
+		}
 		if (strcmp(helpy.token1, "push") == 0)
 		{
 			helpy.token2 = strtok(NULL, " \n");
