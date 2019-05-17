@@ -6,10 +6,6 @@
  */
 int montyprocess(void)
 {
-	int i = 0;
-		instruction_t instructions[] = {{"push", push}, {"sub", sub}, {"pstr", pstr}, 
-					{"div", divi}, {"mul", mul}, {"pall", pall}, {"pint", pint}, {"nop", nop}, {"pchar", pchar},
-					{"mod", mod}, {"pop", pop}, {"swap", swap}, {"add", add}, {NULL, NULL}};
 	while ((getline(&helpy.buffer, &helpy.n, helpy.fp)) != EOF)
 	{
 		helpy.line_number++;
@@ -27,26 +23,43 @@ int montyprocess(void)
 			}
 			_isnumber();
 		}
-		i = 0;
-		while (instructions[i].opcode != NULL)
-		{
-			if (strcmp(instructions[i].opcode, helpy.token1) == 0)
-			{
-				instructions[i].f(&helpy.head, helpy.line_number);
-				break;
-			}
-			i++;
-		}
-		if (instructions[i].opcode == NULL)
-		{
-			fprintf(stderr, "L%lu: unknown instruction %s\n",
-				helpy.line_number, helpy.token1);
-			free_everything();
-			exit(EXIT_FAILURE);
-		}
+		montycompare();
 	}
 	return (0);
 }
+/**
+ * montycompare - compares monty instructions to opcodes and calls functions
+ *
+ * Return: 0 on success, EXIT_FAILURE on error
+ */
+int montycompare(void)
+{
+	int i = 0;
+	instruction_t instructions[] = {{"push", push}, {"sub", sub}, {"pstr", pstr},
+					{"div", divi}, {"mul", mul}, {"pall", pall},
+					{"pint", pint}, {"nop", nop}, {"pchar", pchar},
+					{"mod", mod}, {"pop", pop}, {"swap", sw},
+					{"add", add}, {NULL, NULL}};
+	i = 0;
+	while (instructions[i].opcode != NULL)
+	{
+		if (strcmp(instructions[i].opcode, helpy.token1) == 0)
+		{
+			instructions[i].f(&helpy.head, helpy.line_number);
+			break;
+		}
+		i++;
+	}
+	if (instructions[i].opcode == NULL)
+	{
+		fprintf(stderr, "L%lu: unknown instruction %s\n",
+			helpy.line_number, helpy.token1);
+		free_everything();
+		exit(EXIT_FAILURE);
+	}
+	return (0);
+}
+
 /**
  * free_everything - frees allocated memory
  */
