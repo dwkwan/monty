@@ -91,5 +91,5 @@
 	* queue - The opcode queue sets the format of the data to a queue (FIFO).
 
 **Authors:**
-David Kwan(692@holbertonschool.com)(Twitter: daviddwkwan)(Medium: dwkwan1989)
+David Kwan(692@holbertonschool.com)(Twitter: daviddwkwan)(Medium: dwkwan1989)(LinkedIn: david-kwan-1b0930129)
 Grayson Stiegler(682@holbertonschool.com)
