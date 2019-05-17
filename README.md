@@ -57,7 +57,13 @@
 	* swap - The opcode swap swaps the top two elements of the stack.
 	* add - The opcode add adds the top two elements of the stack.
 	* nop - The opcode nop doesn’t do anything.
-
+	* sub - The opcode sub subtracts the top element of the stack from the second top element of the stack.
+	* div - The opcode div divides the second top element of the stack by the top element of the stack.
+	* mul - The opcode mul multiplies the second top element of the stack with the top element of the stack.
+	* mod - The opcode mod computes the rest of the division of the second top element of the stack by the top element of the stack.
+	* comments - When the first non-space character of a line is #, treat this line as a comment (don’t do anything).
+	* pchar - The opcode pchar prints the char at the top of the stack, followed by a new line.
+	* pstr -  The opcode pstr prints the string starting at the top of the stack, followed by a new line.
 **Authors:**
 David Kwan(692@holbertonschool.com)
 Grayson Stiegler(682@holbertonschool.com)
