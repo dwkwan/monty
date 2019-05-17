@@ -57,6 +57,9 @@
 	* swap - The opcode swap swaps the top two elements of the stack.
 	* add - The opcode add adds the top two elements of the stack.
 	* nop - The opcode nop doesn’t do anything.
+	* sub - The opcode sub subtracts the top element of the stack from the second top element of the stack.
+	* div - The opcode div divides the second top element of the stack by the top element of the stack.
+	
 
 **Authors:**
 David Kwan(692@holbertonschool.com)
