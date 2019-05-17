@@ -65,6 +65,8 @@
 	* pchar - The opcode pchar prints the char at the top of the stack, followed by a new line.
 	* pstr -  The opcode pstr prints the string starting at the top of the stack, followed by a new line.
 	* rotl - The opcode rotl rotates the stack to the top.
+	* rotr - The opcode rotr rotates the stack to the bottom.
+	* 
 
 
 **Authors:**
