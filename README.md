@@ -64,6 +64,9 @@
 	* comments - When the first non-space character of a line is #, treat this line as a comment (don’t do anything).
 	* pchar - The opcode pchar prints the char at the top of the stack, followed by a new line.
 	* pstr -  The opcode pstr prints the string starting at the top of the stack, followed by a new line.
+	* rotl - The opcode rotl rotates the stack to the top.
+
+
 **Authors:**
 David Kwan(692@holbertonschool.com)
 Grayson Stiegler(682@holbertonschool.com)
